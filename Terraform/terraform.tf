@@ -19,6 +19,7 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "~> 2.27.0"
     }
+    
   }
 
   backend "s3" {
@@ -54,3 +55,5 @@ provider "kubectl" {
     command     = "aws"
   }   
 }
+
+
