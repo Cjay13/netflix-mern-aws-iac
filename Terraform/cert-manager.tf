@@ -1,4 +1,5 @@
 module "cert-manager" {
+    depends_on = [module.eks]
     source = "git::https://github.com/Cjay13/terraform-kubernetes-cert-manager.git?ref=main"
     chart_version            = "v1.17.0"
     create_clusterIssuer     = true
