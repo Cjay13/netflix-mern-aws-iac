@@ -3,9 +3,9 @@ module "cert-manager" {
     source = "git::https://github.com/Cjay13/terraform-kubernetes-cert-manager.git?ref=main"
 
     providers = {
-        kubectl = gavinbunney/kubectl
+        kubectl = kubectl
     }
-    
+
     chart_version            = "v1.17.0"
     create_clusterIssuer     = true
     clusterIssuer_name       = "letsencrypt-prod"
