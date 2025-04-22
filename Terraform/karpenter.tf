@@ -50,7 +50,7 @@ resource "kubectl_manifest" "karpenter-node-pool" {
           nodeClassRef:
             name: default-node-class
           requirements:
-            - key: "karpenter.k8s.aws/instance-type"
+            - key: "node.kubernetes.io/instance-type"
               operator: In
               values: ["t3.small"]
             - key: "karpenter.k8s.aws/capacity-type"
