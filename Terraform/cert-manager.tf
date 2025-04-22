@@ -12,5 +12,5 @@ module "cert-manager" {
     acme_server_url          = var.acme_server_url
     letsencrypt_email        = var.letsencrypt_email
     private_key_secret_name  = var.private_key_secret_name
-    ingress_class            = var.ingress_class
+    ingress_class            = var.ingress_class_name
 }
