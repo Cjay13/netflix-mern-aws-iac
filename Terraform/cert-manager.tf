@@ -6,11 +6,11 @@ module "cert-manager" {
         kubectl = kubectl
     }
 
-    chart_version            = "v1.17.0"
-    create_clusterIssuer     = true
-    clusterIssuer_name       = "letsencrypt-prod"
-    acme_server_url          = "https://acme-v02.api.letsencrypt.org/directory"
-    letsencrypt_email        = "herath.charithjay@gmail.com"
-    private_key_secret_name  = "letsencrypt-prod"
-   ingress_class            = "nginx"
+    chart_version            = var.cert_manager_chart_version
+    create_clusterIssuer     = var.create_clusterIssuer
+    clusterIssuer_name       = var.cluster_issuer_name
+    acme_server_url          = var.acme_server_url
+    letsencrypt_email        = var.letsencrypt_email
+    private_key_secret_name  = var.private_key_secret_name
+    ingress_class            = var.ingress_class
 }
