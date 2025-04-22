@@ -45,6 +45,7 @@ resource "kubectl_manifest" "karpenter-node-pool" {
     metadata:
       name: default-node-pool
     spec:
+      capacityType: spot
       template:
         spec:
           nodeClassRef:
@@ -53,10 +54,6 @@ resource "kubectl_manifest" "karpenter-node-pool" {
             - key: "node.kubernetes.io/instance-type"
               operator: In
               values: ["t3.small"]
-            - key: "karpenter.k8s.aws/capacity-type"
-              operator: In
-              values: ["spot"]
- 
       limits:
         cpu: 100
       disruption:
