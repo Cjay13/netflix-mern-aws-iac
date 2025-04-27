@@ -1,4 +1,5 @@
-resource "aws_acm_certificate" "cert" {
+resource "aws_acm_certificate" "netflix-cert" {
+  provider = aws.useast1
   domain_name       = "stream.cjaydevops.com"
   validation_method = "DNS"
 

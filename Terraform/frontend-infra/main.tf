@@ -13,3 +13,12 @@ terraform {
     region = "ap-southeast-2"
   }
 }
+
+provider "aws" {
+  region = var.region
+}
+
+provider "aws" {
+  region = var.region-acm
+  alias = "useast1"
+}
