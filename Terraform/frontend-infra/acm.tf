@@ -12,6 +12,17 @@ resource "aws_acm_certificate" "netflix-cert" {
   }
 }
 
+resource "null_resource" "wait_for_dns_propagation" {
+  provisioner "local-exec" {
+    command = "sleep 60"  # Sleep for 60 seconds to give time for DNS propagation
+  }
+
+  depends_on = [
+    aws_route53_record.acm_validation,
+    null_resource.wait_for_dns_propagation
+  ]
+}
+
 resource "aws_acm_certificate_validation" "netflix-cert-validation" {
   certificate_arn         = aws_acm_certificate.netflix-cert.arn
   validation_record_fqdns = [for record in aws_route53_record.acm_validation : record.fqdn]
