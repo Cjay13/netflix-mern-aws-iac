@@ -52,10 +52,10 @@ data "aws_iam_policy_document" "allow_cloudfront_access" {
       "${aws_s3_bucket.netflix-frontend-bucket.arn}/*"
     ]
 
-    condition = {
-        StringEquals = {
-            "AWS:SourceArn" = aws_cloudfront_distribution.netflix_cloudfront_distribution.arn
-        }
+    condition {
+        test     = "ForAnyValue:StringEquals"
+        variable = "AWS:SourceArn"
+        values = [aws_cloudfront_distribution.netflix_cloudfront_distribution.arn]
     }
   }
 }
