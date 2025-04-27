@@ -18,6 +18,8 @@ resource "aws_s3_bucket" "netflix-frontend-bucket" {
 resource "aws_s3_bucket" "netflix-frontend-logs-bucket" {
   bucket = "netflix-frontend-logs-bucket"
 
+  acl    = "log-delivery-write"
+
   tags = {
     Project = "netflix-clone-mern"
   }
