@@ -28,7 +28,7 @@ resource "aws_cloudfront_distribution" "netflix_cloudfront_distribution" {
 #    prefix          = "netflix-frontend"
 #  }
 
-  aliases = ["netflix.cjaydevops.com"]
+  aliases = ["stream.cjaydevops.com"]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
