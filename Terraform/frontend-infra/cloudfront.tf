@@ -61,4 +61,8 @@ resource "aws_cloudfront_distribution" "netflix_cloudfront_distribution" {
     acm_certificate_arn = aws_acm_certificate.netflix-cert.arn
     ssl_support_method = "sni-only"
   }
+
+  depends_on = [
+    aws_acm_certificate_validation.netflix-cert-validation
+  ]
 }
