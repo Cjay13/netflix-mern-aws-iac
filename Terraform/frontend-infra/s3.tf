@@ -15,15 +15,15 @@ resource "aws_s3_bucket" "netflix-frontend-bucket" {
   }
 }
 
-resource "aws_s3_bucket" "netflix-frontend-logs-bucket" {
-  bucket = "netflix-frontend-logs-bucket"
+#resource "aws_s3_bucket" "netflix-frontend-logs-bucket" {
+#  bucket = "netflix-frontend-logs-bucket"
 
-  acl    = "log-delivery-write"
+  #acl    = "log-delivery-write"
 
-  tags = {
-    Project = "netflix-clone-mern"
-  }
-}
+  #tags = {
+   # Project = "netflix-clone-mern"
+  #}
+#}
 
 resource "aws_s3_bucket_website_configuration" "netflix-frontend-bucket-webconfig" {
   bucket = aws_s3_bucket.netflix-frontend-bucket.id

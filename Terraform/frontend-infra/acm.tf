@@ -15,4 +15,8 @@ resource "aws_acm_certificate" "netflix-cert" {
 resource "aws_acm_certificate_validation" "netflix-cert-validation" {
   certificate_arn         = aws_acm_certificate.netflix-cert.arn
   validation_record_fqdns = [for record in aws_route53_record.acm_validation : record.fqdn]
+
+  depends_on = [
+    aws_route53_record.acm_validation
+  ]
 }
