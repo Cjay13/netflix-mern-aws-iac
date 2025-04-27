@@ -22,11 +22,11 @@ resource "aws_cloudfront_distribution" "netflix_cloudfront_distribution" {
 
   default_root_object = "index.html"
 
-  logging_config {
-    include_cookies = false
-    bucket          = aws_s3_bucket.netflix-frontend-logs-bucket.bucket_domain_name
-    prefix          = "netflix-frontend"
-  }
+#  logging_config {
+#    include_cookies = false
+#    bucket          = aws_s3_bucket.netflix-frontend-logs-bucket.bucket_domain_name
+#    prefix          = "netflix-frontend"
+#  }
 
   aliases = ["netflix.cjaydevops.com"]
 
