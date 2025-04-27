@@ -9,3 +9,11 @@ resource "aws_route53_record" "netflix_cname" {
     evaluate_target_health = false
   }
 }
+
+resource "aws_route53_record" "acm_validation" {
+  zone_id = var.route53_zone_id
+  name    = aws_acm_certificate.netflix-cert.domain_validation_options[0].resource_record_name
+  type    = aws_acm_certificate.netflix-cert.domain_validation_options[0].resource_record_type
+  ttl     = 60
+  records = [aws_acm_certificate.netflix-cert.domain_validation_options[0].resource_record_value]
+}
