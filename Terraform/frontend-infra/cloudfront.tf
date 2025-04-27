@@ -46,6 +46,13 @@ resource "aws_cloudfront_distribution" "netflix_cloudfront_distribution" {
     viewer_protocol_policy = "redirect-to-https"
   }
 
+  restrictions {
+    geo_restriction {
+        restriction_type = "none" 
+        locations = [] 
+    }
+  }
+
   tags = {
     Project = "netflix-clone-mern"
   }

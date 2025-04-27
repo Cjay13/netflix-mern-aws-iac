@@ -33,7 +33,7 @@ resource "aws_s3_bucket_website_configuration" "netflix-frontend-bucket-webconfi
 
 resource "aws_s3_bucket_policy" "allow_cloudfront_access" {
   bucket = aws_s3_bucket.netflix-frontend-bucket.id
-  policy = data.aws_iam_policy_document.allow_access_from_another_account.json
+  policy = data.aws_iam_policy_document.allow_cloudfront_access.json
 }
 
 data "aws_iam_policy_document" "allow_cloudfront_access" {
@@ -52,7 +52,7 @@ data "aws_iam_policy_document" "allow_cloudfront_access" {
       "${aws_s3_bucket.netflix-frontend-bucket.arn}/*"
     ]
 
-    Condition = {
+    condition = {
         StringEquals = {
             "AWS:SourceArn" = aws_cloudfront_distribution.netflix_cloudfront_distribution.arn
         }
