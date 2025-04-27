@@ -1,6 +1,6 @@
 resource "aws_route53_record" "netflix_cname" {
   zone_id = "Z0236041Q971BCTPRXPK"
-  name    = "netflix"
+  name    = "stream"
   type    = "A"
 
   alias {
