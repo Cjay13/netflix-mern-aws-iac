@@ -44,6 +44,7 @@ resource "aws_cloudfront_distribution" "netflix_cloudfront_distribution" {
     }
 
     viewer_protocol_policy = "redirect-to-https"
+  }
 
   tags = {
     Project = "netflix-clone-mern"
