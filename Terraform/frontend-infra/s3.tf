@@ -51,6 +51,7 @@ data "aws_iam_policy_document" "allow_cloudfront_access" {
     ]
 
     resources = [
+      aws_s3_bucket.netflix_frontend_bucket.arn,
       "${aws_s3_bucket.netflix-frontend-bucket.arn}/*"
     ]
 
