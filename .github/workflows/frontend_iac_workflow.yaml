@@ -46,6 +46,7 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: "config"
+          scan-dir: "Terraform/frontend-infra"
           hide-progress: true
           format: "sarif"
           output: "trivy-results.sarif"
