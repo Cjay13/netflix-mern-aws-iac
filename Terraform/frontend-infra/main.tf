@@ -7,11 +7,7 @@ terraform {
     
   }
 
-  backend "s3" {
-    bucket = "cjay-tf-status"
-    key    = "frontend/terraform.tfstate"
-    region = "ap-southeast-2"
-  }
+  backend "s3" {}
 }
 
 provider "aws" {
