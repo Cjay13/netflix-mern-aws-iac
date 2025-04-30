@@ -1,4 +1,4 @@
-resource aws_wafv2_web_acl" "netflix_cf_waf" {
+resource "aws_wafv2_web_acl" "netflix_cf_waf" {
   name        = "cloudfront_waf_acl"
   scope       = "CLOUDFRONT"
   
