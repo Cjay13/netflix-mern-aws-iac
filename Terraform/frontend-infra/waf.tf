@@ -17,7 +17,7 @@ resource "aws_wafv2_web_acl" "netflix_cf_waf" {
 
     statement {
         managed_rule_group_statement {
-            name = "AWSManagedSQLiRule"
+            name = "AWSManagedRulesSQLiRuleSet"
             vendor_name = "AWS"
         }
     }
