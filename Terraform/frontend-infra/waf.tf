@@ -10,7 +10,7 @@ resource "aws_wafv2_web_acl" "netflix_cf_waf" {
     name = "sql-injection-rule"
     priority = 1
 
-    override_action = {
+    override_action {
         none {}
     }
 
