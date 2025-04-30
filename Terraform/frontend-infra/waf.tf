@@ -1,4 +1,5 @@
 resource "aws_wafv2_web_acl" "netflix_cf_waf" {
+  provider = aws.useast1
   name        = "cloudfront_waf_acl"
   scope       = "CLOUDFRONT"
   
