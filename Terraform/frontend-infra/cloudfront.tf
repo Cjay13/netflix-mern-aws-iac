@@ -53,6 +53,8 @@ resource "aws_cloudfront_distribution" "netflix_cloudfront_distribution" {
     }
   }
 
+  web_acl_id = aws_wafv2_web_acl.netflix_cf_waf.arn
+
   tags = {
     Project = "netflix-clone-mern"
   }
